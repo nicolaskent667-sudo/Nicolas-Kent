@@ -4,7 +4,8 @@
 
 (function () {
   const SETTINGS = {
-    colors: ['#4f8cff', '#2dd4bf', '#ffd166'],
+    // Azules del sitio: acento (--accent), azul intermedio y celeste claro (--ink)
+    colors: ['#668dc0', '#4f7fc4', '#c0d0ef'],
     rainbow: false,
     colorSpeed: 1,
     intensity: 1,
