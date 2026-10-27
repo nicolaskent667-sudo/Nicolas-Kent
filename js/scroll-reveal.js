@@ -67,6 +67,23 @@
       return;
     }
 
+    // Posición de scroll en la que empieza el efecto, y el máximo que se puede bajar en la página
+    const startPos = () => el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.9;
+    const maxScroll = () => ScrollTrigger.maxScroll(window);
+
+    // Cerca del final de la página no hay recorrido suficiente para el efecto con scroll:
+    // ahí el texto se revela solo apenas aparece en pantalla
+    if (startPos() > maxScroll() - window.innerHeight * 0.2) {
+      gsap.set(words, FROM);
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top bottom',
+        once: true,
+        onEnter: () => gsap.to(words, { ...TO, duration: 0.9, ease: 'power2.out', stagger: 0.025 })
+      });
+      return;
+    }
+
     gsap.fromTo(words, FROM, {
       ...TO,
       ease: 'none',
@@ -74,8 +91,8 @@
       scrollTrigger: {
         trigger: el,
         start: 'top 90%',
-        // El recorrido crece con el largo del párrafo, para leerlo a medida que aparece
-        end: () => `+=${Math.max(window.innerHeight * 0.35, el.offsetHeight * 1.2)}`,
+        // El recorrido crece con el largo del párrafo, pero nunca pasa del final de la página
+        end: () => Math.min(maxScroll(), startPos() + Math.max(window.innerHeight * 0.35, el.offsetHeight * 1.2)),
         scrub: 0.6
       }
     });

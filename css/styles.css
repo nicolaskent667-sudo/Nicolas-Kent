@@ -639,6 +639,110 @@ section.alt {
   outline-offset: 2px;
 }
 
+/* ---------- Vista previa de sitios (Encargos anónimos) ---------- */
+
+.encargo-heading {
+  max-width: 720px;
+  margin-top: 36px;
+}
+
+.encargo-heading h3 {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: 21px;
+  margin: 0 0 8px;
+}
+
+.encargo-heading p {
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+
+.site-preview {
+  display: block;
+  max-width: 720px;
+  margin: 8px 0 28px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(102, 141, 192, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Captura con proporción más ancha (p. ej. la del blog) */
+.site-preview--wide .site-preview__screen {
+  aspect-ratio: 1894 / 874;
+}
+
+.site-preview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(102, 141, 192, 0.35);
+}
+
+.site-preview:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.site-preview__bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 34px;
+  padding: 0 12px;
+  background: #eef1f6;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-preview__dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.site-preview__dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c2c6ce;
+}
+
+.site-preview__dots span:nth-child(1) { background: #ff5f57; }
+.site-preview__dots span:nth-child(2) { background: #febc2e; }
+.site-preview__dots span:nth-child(3) { background: #28c840; }
+
+.site-preview__url {
+  flex: 1;
+  max-width: 320px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 12px;
+  color: var(--label);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.site-preview__screen {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #fbe3ec;
+}
+
+/* Captura de la página de inicio (sin sonido); el clic lo toma el enlace y abre la página real */
+.site-preview__screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
 /* ---------- Lightbox ---------- */
 
 body.lightbox-open {
