@@ -1,0 +1,21 @@
+/* ScrollReveal — cada palabra se anima por separado */
+.scroll-reveal__word {
+  display: inline-block;
+  will-change: opacity, filter, transform;
+}
+
+/* Letra capital recreada (reemplaza a ::first-letter, que no funciona con el texto dividido) */
+.scroll-reveal__initial {
+  display: block;
+  will-change: opacity, filter, transform;
+}
+
+.scroll-reveal__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

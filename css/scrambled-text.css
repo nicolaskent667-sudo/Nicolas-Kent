@@ -1,0 +1,18 @@
+/* ScrambledText — se aplica sobre los títulos existentes, conservando su tipografía */
+.scrambled-text {
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scrambled-text__char {
+  position: relative;
+  display: inline-block;
+}
+
+.scrambled-text__glyph {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: pre;
+}
